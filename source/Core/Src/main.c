@@ -22,10 +22,16 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#define LED_RED_EAST_WEST GPIO_PIN_1
+#define LED_YELLOW_EAST_WEST GPIO_PIN_2
+#define LED_GREEN_EAST_WEST GPIO_PIN_3
+#define LED_RED_NORTH_SOUTH GPIO_PIN_4
+#define LED_YELLOW_NORTH_SOUTH GPIO_PIN_5
+#define LED_GREEN_NORTH_SOUTH GPIO_PIN_6
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
+
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
@@ -91,22 +97,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-	  // Bật đèn LED đỏ
-	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
-	  HAL_Delay(1000); // Đợi 1 giây
 
-	  // Tắt đèn LED đỏ
-	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
-	  HAL_Delay(1000); // Đợi 1 giây
+      	 while (1) {
 
-    /* USER CODE END WHILE */
+      	    }
+      	}
 
-    /* USER CODE BEGIN 3 */
-  }
+
   /* USER CODE END 3 */
-}
+
 
 /**
   * @brief System Clock Configuration
