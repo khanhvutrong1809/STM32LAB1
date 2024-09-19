@@ -58,6 +58,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define W1_Pin GPIO_PIN_1
+#define W1_GPIO_Port GPIOA
+#define W2_Pin GPIO_PIN_2
+#define W2_GPIO_Port GPIOA
+#define W3_Pin GPIO_PIN_3
+#define W3_GPIO_Port GPIOA
+#define W4_Pin GPIO_PIN_4
+#define W4_GPIO_Port GPIOA
+#define W5_Pin GPIO_PIN_5
+#define W5_GPIO_Port GPIOA
+#define W6_Pin GPIO_PIN_6
+#define W6_GPIO_Port GPIOA
+#define W7_Pin GPIO_PIN_7
+#define W7_GPIO_Port GPIOA
 #define S1_Pin GPIO_PIN_0
 #define S1_GPIO_Port GPIOB
 #define S2_Pin GPIO_PIN_1
@@ -74,6 +88,16 @@ void Error_Handler(void);
 #define A6_GPIO_Port GPIOB
 #define A7_Pin GPIO_PIN_14
 #define A7_GPIO_Port GPIOB
+#define W8_Pin GPIO_PIN_8
+#define W8_GPIO_Port GPIOA
+#define W9_Pin GPIO_PIN_9
+#define W9_GPIO_Port GPIOA
+#define W10_Pin GPIO_PIN_10
+#define W10_GPIO_Port GPIOA
+#define W11_Pin GPIO_PIN_11
+#define W11_GPIO_Port GPIOA
+#define W12_Pin GPIO_PIN_12
+#define W12_GPIO_Port GPIOA
 #define S4_Pin GPIO_PIN_3
 #define S4_GPIO_Port GPIOB
 #define S5_Pin GPIO_PIN_4
