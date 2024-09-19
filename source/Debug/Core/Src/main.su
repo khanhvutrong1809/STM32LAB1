@@ -1,4 +1,5 @@
-main.c:64:5:main	8	static
-main.c:115:6:SystemClock_Config	72	static
-main.c:151:13:MX_GPIO_Init	32	static
-main.c:178:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:94:8:Blink1	16	static
+main.c:64:5:main	16	static
+main.c:126:6:SystemClock_Config	72	static
+main.c:162:13:MX_GPIO_Init	32	static
+main.c:195:6:Error_Handler	4	static,ignoring_inline_asm

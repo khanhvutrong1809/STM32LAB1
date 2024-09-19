@@ -91,22 +91,33 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  void Blink1(int count) {
+      if (count == 1) { HAL_GPIO_TogglePin(A1_GPIO_Port, A1_Pin); }
+      if (count == 2) { HAL_GPIO_TogglePin(A2_GPIO_Port, A2_Pin); }
+      if (count == 3) { HAL_GPIO_TogglePin(A3_GPIO_Port, A3_Pin); }
+      if (count == 4) { HAL_GPIO_TogglePin(A4_GPIO_Port, A4_Pin); }
+      if (count == 5) { HAL_GPIO_TogglePin(A5_GPIO_Port, A5_Pin); }
+      if (count == 6) { HAL_GPIO_TogglePin(A6_GPIO_Port, A6_Pin); }
+      if (count == 7) { HAL_GPIO_TogglePin(A7_GPIO_Port, A7_Pin); }
+      if (count == 8) { HAL_GPIO_TogglePin(A8_GPIO_Port, A8_Pin); }
+      if (count == 9) { HAL_GPIO_TogglePin(A9_GPIO_Port, A9_Pin); }
+      if (count == 10){ HAL_GPIO_TogglePin(A10_GPIO_Port, A10_Pin);}
+      if (count == 11){ HAL_GPIO_TogglePin(A11_GPIO_Port, A11_Pin);}
+      if (count == 12){ HAL_GPIO_TogglePin(A12_GPIO_Port, A12_Pin);}
+  }
+int a= 0;
   while (1)
   {
-	  // Bật đèn LED đỏ
-	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
-	  HAL_Delay(1000); // Đợi 1 giây
-
-	  // Tắt đèn LED đỏ
-	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
-	  HAL_Delay(1000); // Đợi 1 giây
+	  Blink1(a++);
+	  if(a>12) a=0;
+	  HAL_Delay(250);
+	  }
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-}
 
 /**
   * @brief System Clock Configuration
@@ -156,14 +167,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, A1_Pin|A2_Pin|A3_Pin|A4_Pin
+                          |A5_Pin|A6_Pin|A7_Pin|A8_Pin
+                          |A9_Pin|A10_Pin|A11_Pin|A12_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED_RED_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin;
+  /*Configure GPIO pins : A1_Pin A2_Pin A3_Pin A4_Pin
+                           A5_Pin A6_Pin A7_Pin A8_Pin
+                           A9_Pin A10_Pin A11_Pin A12_Pin */
+  GPIO_InitStruct.Pin = A1_Pin|A2_Pin|A3_Pin|A4_Pin
+                          |A5_Pin|A6_Pin|A7_Pin|A8_Pin
+                          |A9_Pin|A10_Pin|A11_Pin|A12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_RED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
 
