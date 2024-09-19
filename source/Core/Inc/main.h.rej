@@ -1,0 +1,9 @@
+diff a/source/Core/Inc/main.h b/source/Core/Inc/main.h	(rejected hunks)
+@@ -58,7 +58,6 @@
+ /* USER CODE END EFP */
+ 
+ /* Private defines -----------------------------------------------------------*/
+-#define LED_RED_Pin GPIO_PIN_5
+ #define S1_Pin GPIO_PIN_0
+ #define S1_GPIO_Port GPIOB
+ #define S2_Pin GPIO_PIN_1
