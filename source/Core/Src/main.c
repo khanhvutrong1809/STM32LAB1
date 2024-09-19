@@ -106,12 +106,110 @@ int main(void)
       if (count == 12){ HAL_GPIO_TogglePin(A12_GPIO_Port, A12_Pin);}
   }
 int a= 0;
+	void  clearAllClock(){
+			HAL_GPIO_WritePin(A1_GPIO_Port, A1_Pin, SET);
+		    HAL_GPIO_WritePin(A2_GPIO_Port, A2_Pin, SET);
+		    HAL_GPIO_WritePin(A3_GPIO_Port, A3_Pin, SET);
+		    HAL_GPIO_WritePin(A4_GPIO_Port, A4_Pin, SET);
+		    HAL_GPIO_WritePin(A5_GPIO_Port, A5_Pin, SET);
+		    HAL_GPIO_WritePin(A6_GPIO_Port, A6_Pin, SET);
+		    HAL_GPIO_WritePin(A7_GPIO_Port, A7_Pin, SET);
+		    HAL_GPIO_WritePin(A8_GPIO_Port, A8_Pin, SET);
+		    HAL_GPIO_WritePin(A9_GPIO_Port, A9_Pin, SET);
+		    HAL_GPIO_WritePin(A10_GPIO_Port, A10_Pin, SET);
+		    HAL_GPIO_WritePin(A11_GPIO_Port, A11_Pin, SET);
+		    HAL_GPIO_WritePin(A12_GPIO_Port, A12_Pin, SET);
+	}
+	void setNumberOnClock(int num) {
+	    switch(num) {
+	        case 0:
+	            HAL_GPIO_WritePin(A2_GPIO_Port, A2_Pin, RESET); break;
+	        case 1:
+	            HAL_GPIO_WritePin(A3_GPIO_Port, A3_Pin, RESET); break;
+	        case 2:
+	            HAL_GPIO_WritePin(A4_GPIO_Port, A4_Pin, RESET); break;
+	        case 3:
+	            HAL_GPIO_WritePin(A5_GPIO_Port, A5_Pin, RESET); break;
+	        case 4:
+	            HAL_GPIO_WritePin(A6_GPIO_Port, A6_Pin, RESET); break;
+	        case 5:
+	            HAL_GPIO_WritePin(A7_GPIO_Port, A7_Pin, RESET); break;
+	        case 6:
+	            HAL_GPIO_WritePin(A8_GPIO_Port, A8_Pin, RESET); break;
+	        case 7:
+	            HAL_GPIO_WritePin(A9_GPIO_Port, A9_Pin, RESET); break;
+	        case 8:
+	            HAL_GPIO_WritePin(A10_GPIO_Port, A10_Pin, RESET); break;
+	        case 9:
+	            HAL_GPIO_WritePin(A11_GPIO_Port, A11_Pin, RESET); break;
+	        case 10:
+	            HAL_GPIO_WritePin(A12_GPIO_Port, A12_Pin, RESET); break;
+	        case 11:
+	            HAL_GPIO_WritePin(A1_GPIO_Port, A1_Pin, RESET); break;
+	    }
+	}
+	void clearNumberOnClock(int num) {
+	    switch(num) {
+	        case 0:
+	            HAL_GPIO_WritePin(A2_GPIO_Port, A2_Pin, SET); break;
+	        case 1:
+	            HAL_GPIO_WritePin(A3_GPIO_Port, A3_Pin, SET); break;
+	        case 2:
+	            HAL_GPIO_WritePin(A4_GPIO_Port, A4_Pin, SET); break;
+	        case 3:
+	            HAL_GPIO_WritePin(A5_GPIO_Port, A5_Pin, SET); break;
+	        case 4:
+	            HAL_GPIO_WritePin(A6_GPIO_Port, A6_Pin, SET); break;
+	        case 5:
+	            HAL_GPIO_WritePin(A7_GPIO_Port, A7_Pin, SET); break;
+	        case 6:
+	            HAL_GPIO_WritePin(A8_GPIO_Port, A8_Pin, SET); break;
+	        case 7:
+	            HAL_GPIO_WritePin(A9_GPIO_Port, A9_Pin, SET); break;
+	        case 8:
+	            HAL_GPIO_WritePin(A10_GPIO_Port, A10_Pin, SET); break;
+	        case 9:
+	            HAL_GPIO_WritePin(A11_GPIO_Port, A11_Pin, SET); break;
+	        case 10:
+	            HAL_GPIO_WritePin(A12_GPIO_Port, A12_Pin, SET); break;
+	        case 11:
+	            HAL_GPIO_WritePin(A1_GPIO_Port, A1_Pin, SET); break;
+	    }
+	}
+	int h = 0; // Giờ
+	int m = 0; // Phút
+	int s = 0; // Giây
+
   while (1)
   {
 	  Blink1(a++);
 	  if(a>12) a=0;
-	  HAL_Delay(250);
+	  HAL_Delay(250); //ex6
+	  clearAllClock();
+	  setNumberOnClock(h);
+	  setNumberOnClock(m / 5);
+	  setNumberOnClock(s / 5);
+	  s++;
+	  HAL_Delay(1000);
 	  }
+      clearNumberOnClock((s - 1) / 5); // Xóa trạng thái cuối cùng của "giây"
+
+     if (s > 59) {
+         s = 0;
+         clearNumberOnClock(m / 5);
+         m++;
+         setNumberOnClock(m / 5);
+     }
+     if (m > 59) {
+         m = 0;
+         clearNumberOnClock(h);
+         h++;
+         setNumberOnClock(h);
+     }
+     if (h > 11) {
+         clearNumberOnClock(h);
+         setNumberOnClock(h);
+     }
 
     /* USER CODE END WHILE */
 
