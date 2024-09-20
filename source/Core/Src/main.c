@@ -187,7 +187,7 @@ int main(void)
         }
     }
     void display7SEG(int num) {
-          // Make 10 case for 7SEG led to display from 0 to 9
+
           switch(num) {
               case 0:
                   HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, RESET);
