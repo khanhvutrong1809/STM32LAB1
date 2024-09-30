@@ -182,34 +182,28 @@ int a= 0;
 
   while (1)
   {
-	  Blink1(a++);
-	  if(a>12) a=0;
-	  HAL_Delay(250); //ex6
-	  clearAllClock();
-	  setNumberOnClock(h);
-	  setNumberOnClock(m / 5);
-	  setNumberOnClock(s / 5);
-	  s++;
-	  HAL_Delay(1000);
-	  }
-      clearNumberOnClock((s - 1) / 5); // Xóa trạng thái cuối cùng của "giây"
 
-     if (s > 59) {
+
+
+     if (s >= 59) {
          s = 0;
-         clearNumberOnClock(m / 5);
-         m++;
-         setNumberOnClock(m / 5);
-     }
-     if (m > 59) {
+           m++;
+            }
+     if (m >= 59) {
          m = 0;
-         clearNumberOnClock(h);
-         h++;
-         setNumberOnClock(h);
+               	   h++;
+            }
+     if (h >= 11) {
+        h=0;
      }
-     if (h > 11) {
-         clearNumberOnClock(h);
-         setNumberOnClock(h);
-     }
+     clearAllClock();
+   	  setNumberOnClock(h);
+   	  setNumberOnClock(m / 5);
+   	  setNumberOnClock(s / 5);
+   	  s++;
+   	  HAL_Delay(50);
+   	  }
+
 
     /* USER CODE END WHILE */
 
